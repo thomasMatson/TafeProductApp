@@ -16,8 +16,10 @@ namespace ProductApps
         private decimal gst;
         public decimal totalCharge;
         public decimal wrapTotalCharge;
+        public decimal gstTotalCharge;
         private const decimal deliveryCharge = 25.0m;
         private const decimal wrapCharge = 5.0m;
+        private const decimal gstRate = 1.1m;
 
         private decimal Price
         {
@@ -82,6 +84,12 @@ namespace ProductApps
         {
             calTotalCharge();
             wrapTotalCharge = totalCharge + wrapCharge;
+        }
+        // Calculate the total charge after GST
+        public void calGstTotalCharge()
+        {
+            calWrapTotalCharge();
+            gstTotalCharge = wrapTotalCharge * gstRate;
         }
     }
 }

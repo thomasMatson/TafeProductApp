@@ -35,6 +35,9 @@ namespace ProductApps
                 cProduct.calTotalPayment();
                 cProduct.calTotalCharge();
                 cProduct.calWrapTotalCharge();
+                cProduct.calGstTotalCharge();
+
+                //Display total payment
                 totalPaymentTextBlock.Text = Convert.ToString(cProduct.TotalPayment);
                 
                 //Display total charge after delivery
@@ -42,6 +45,9 @@ namespace ProductApps
 
                 //Display total charge after wrapping
                 wraptotalChargeTextBox.Text = cProduct.wrapTotalCharge.ToString("C");
+
+                //Display total charge after GST
+                gstChargeTextBox.Text = cProduct.gstTotalCharge.ToString("C");
             }
             catch (FormatException)
             {
