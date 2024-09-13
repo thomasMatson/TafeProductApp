@@ -15,7 +15,9 @@ namespace ProductApps
         private decimal wrapping;
         private decimal gst;
         public decimal totalCharge;
+        public decimal wrapTotalCharge;
         private const decimal deliveryCharge = 25.0m;
+        private const decimal wrapCharge = 5.0m;
 
         private decimal Price
         {
@@ -68,11 +70,18 @@ namespace ProductApps
             TotalPayment = Price * Quantity;
         }
 
-        //Calculate the total charge
+        //Calculate the total charge with delivery
         public void calTotalCharge()
         {
             calTotalPayment();
             totalCharge = totalPayment + deliveryCharge;
+        }
+
+        // Calculate the total charge with wrapping
+        public void calWrapTotalCharge()
+        {
+            calTotalCharge();
+            wrapTotalCharge = totalCharge + wrapCharge;
         }
     }
 }
